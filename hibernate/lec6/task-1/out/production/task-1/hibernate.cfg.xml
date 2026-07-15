@@ -19,7 +19,7 @@
         <!-- create -->
 		<!-- update -->
 		<!-- create-drop -->
-		<property name="hbm2ddl.auto">update</property>
+		<property name="hbm2ddl.auto">create</property>
 	
     </session-factory>
 
