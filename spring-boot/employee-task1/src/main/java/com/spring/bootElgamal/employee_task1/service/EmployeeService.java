@@ -18,7 +18,8 @@ public interface EmployeeService {
     List<Employee> modifyListOfEmployee(List<Employee> employees) throws SystemException;
     Employee getEmployeeById(long id) throws SystemException;
     void removeEmployee (long id) throws SystemException;
-
     void removeAllEmployee () throws SystemException;
+
+    List<Employee> getByNameStartingWith(String name);
 
 }

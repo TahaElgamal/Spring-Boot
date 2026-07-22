@@ -3,6 +3,7 @@ package com.spring.bootElgamal.employee_task1.service;
 import com.spring.bootElgamal.employee_task1.model.Employee;
 import com.spring.bootElgamal.employee_task1.repo.EmployeeRepo;
 import jakarta.transaction.SystemException;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.List;
 import java.util.Objects;
@@ -11,6 +12,7 @@ import java.util.Optional;
 public class EmployeeServiceImpl implements EmployeeService{
     private EmployeeRepo employeeRepo;
 
+    @Autowired
     public EmployeeServiceImpl(EmployeeRepo employeeRepo) {
         this.employeeRepo = employeeRepo;
     }
@@ -95,6 +97,11 @@ public class EmployeeServiceImpl implements EmployeeService{
             throw new SystemException("there is no employee now .......");
         }
         employeeRepo.deleteAll();
+    }
+
+    @Override
+    public List<Employee> getByNameStartingWith(String name) {
+        return employeeRepo.findByNameNative(name);
     }
 
 
